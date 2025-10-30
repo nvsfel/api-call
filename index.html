@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vaiky Seguros</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  </head>
+  <body>
+    
+    <div class="container">
+        <div class="row pt-5">
+            <div class="col">
+
+                <h1>Vaiky Seguros</h1>
+
+                <h5 class="pt-1 pb-4"> É bom ter. Afinal, Vaiky...</h5>
+                    
+            </div>
+        </div>
+
+        <form class="row pt-5 pb-5 g-3"> <!---->
+            <div class="col-12 col-lg-1">
+             
+              <label for="input_cep" class="col-form-label" >Digite CEP</label>
+              <!--atributo FOR agrega acessibilidade e usabilidade à tag label em relação ao "input_cep".-->
+
+            </div>
+            <div class="col-12 col-lg-7">
+              
+              <input type="text" class="form-control" id="input_cep" placeholder="00000-00">
+            </div>
+            <div class="col-12 col-lg-4">
+              <button type="submit" class="btn btn-primary mb-3" id="buscar_cep">Buscar CEP</button>
+            </div>
+
+            <div class="col-12 col-lg-8">
+                <div class="row pt-5">
+                    <label for="output_cep" class="col-form-label" >Endereço encontrado: </label>
+                    <textarea class="form-control" id="output_cep" rows="4"></textarea>
+                </div>
+            </div>
+        </form>
+
+       <hr class="my-5">
+
+        <form class="row pt-4 g-3"> <!---->
+          <div class="col-12 col-lg-2">
+           
+            <label for="input_fipe" class="col-form-label" >Digite código da tabela FIPE</label>
+            <!--atributo FOR agrega acessibilidade e usabilidade à tag label em relação ao "input_cep".-->
+
+          </div>
+          <div class="col-12 col-lg-6">
+            
+            <input type="text" class="form-control" id="input_fipe" placeholder="000000-0">
+          </div>
+          <div class="col-12 col-lg-4">
+            <button type="submit" class="btn btn-primary mb-3" id="buscar_fipe">Buscar valor</button>
+          </div>
+
+          <div class="col-12 col-lg-8">
+              <div class="row pt-5">
+                  <label for="output_fipe" class="col-form-label" >Informações FIPE: </label>
+                  <textarea class="form-control" id="output_fipe" rows="4"></textarea>
+              </div>
+          </div>
+      </form>
+    
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  </body>
+</html>
