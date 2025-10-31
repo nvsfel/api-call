@@ -20,24 +20,55 @@
 
       $.get(url, function(data, status) {
         
-        if (status === 'success' & data.cep) {
+        if (data.cep) { 
 
           let endereco_formatado =
-            'UF: ' + data.state + ',\n' +
+            'UF: ' + data.state + ',\n' + /*por não se tratar de uma lista, a estrutura data.objeto é suficiente para extrair dados de  objetos JSON.*/
             'Cidade: '  + data.city + ',\n' +
             'Bairro: '+  data.neighborhood + ',\n' +
             'Rua: ' + data.street;
         
         $("#output_cep").val(endereco_formatado);
 
-        } else {
-          ("#output_cep").val("CEP não encontrado ou formato inválido.");
         }
-    
-      });
+
+      })
+      .fail(function() {
+        // bloco para executar em caso de falha 400, 404 (códigos incorretos, erros de escrita ou rede) etc.
+        $("#output_cep").val("Ocorreu um erro na busca, CEP não encontrado ou formato inválido.");
+    });
 
     });
-  });
+
+    $("#buscar_fipe").click(function(){
+      
+
+        let fipe = $("#input_fipe").val();
+
+        let url = 'https://brasilapi.com.br/api/fipe/preco/v1/'+fipe;
+
+        $.get(url, function(data, status){
+
+          if (status === 'success' && data.length > 0) { /*como a API devolve uma lista, length > 0 testa se o array em 'data' está vazio, o que configuraria erro.*/
+
+            let fipe_formatada = 
+            "Marca: "+data[0].marca+ /*estrutura data[i].objeto acessa os índices da lista devolvidas pela API*/
+              "\nModelo: "+data[0].modelo+ 
+              "\nValor: "+data[0].valor+
+              "\nAno: "+data[0].anoModelo;
+
+            $("#output_fipe").val(fipe_formatada);
+
+          } 
+
+        })
+        .fail(function() {
+        
+        $("#output_fipe").val("Ocorreu um erro na busca, FIPE não encontrada ou formato inválido.");
+        })
+      });
+});
+
 </script>
   
   </head>
@@ -91,7 +122,7 @@
             <input type="text" class="form-control" id="input_fipe" placeholder="000000-0">
           </div>
           <div class="col-12 col-lg-4">
-            <button type="submit" class="btn btn-primary mb-3" id="buscar_fipe">Buscar valor</button>
+            <button type="button" class="btn btn-primary mb-3" id="buscar_fipe">Buscar valor</button>
           </div>
 
           <div class="col-12 col-lg-8">
