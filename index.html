@@ -1,10 +1,45 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Vaiky Seguros</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script>
+  $(document).ready(function(){
+   
+    $("#buscar_cep").click(function () {
+
+      
+     
+      let cep = parseInt($("#input_cep").val());
+      
+      let url = 'https://brasilapi.com.br/api/cep/v2/'+cep;
+
+      $.get(url, function(data, status) {
+        
+        if (status === 'success' & data.cep) {
+
+          let endereco_formatado =
+            'UF: ' + data.state + ',\n' +
+            'Cidade: '  + data.city + ',\n' +
+            'Bairro: '+  data.neighborhood + ',\n' +
+            'Rua: ' + data.street;
+        
+        $("#output_cep").val(endereco_formatado);
+
+        } else {
+          ("#output_cep").val("CEP não encontrado ou formato inválido.");
+        }
+    
+      });
+
+    });
+  });
+</script>
+  
   </head>
   <body>
     
@@ -31,7 +66,7 @@
               <input type="text" class="form-control" id="input_cep" placeholder="00000-00">
             </div>
             <div class="col-12 col-lg-4">
-              <button type="submit" class="btn btn-primary mb-3" id="buscar_cep">Buscar CEP</button>
+              <button type="button" class="btn btn-primary mb-3" id="buscar_cep">Buscar CEP</button>
             </div>
 
             <div class="col-12 col-lg-8">
@@ -48,8 +83,8 @@
           <div class="col-12 col-lg-2">
            
             <label for="input_fipe" class="col-form-label" >Digite código da tabela FIPE</label>
-            <!--atributo FOR agrega acessibilidade e usabilidade à tag label em relação ao "input_cep".-->
-
+          
+          
           </div>
           <div class="col-12 col-lg-6">
             
