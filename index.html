@@ -6,7 +6,22 @@
     <title>Vaiky Seguros</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+     
+     h1{
+          padding-left: 300px;
+       }
+     h5{
+          padding-left: 370px;
+     }
 
+     body{
+
+      background-color: rgba(33, 37, 41, 0.151);
+
+     }
+
+    </style>
 <script>
   $(document).ready(function(){
    
@@ -74,16 +89,24 @@
   </head>
   <body>
     
-    <div class="container">
-        <div class="row pt-5">
-            <div class="col">
-
-                <h1>Vaiky Seguros</h1>
-
-                <h5 class="pt-1 pb-4"> É bom ter. Afinal, Vaiky...</h5>
-                    
-            </div>
+    <div class="row">
+      <div class="col">
+        <div class="text-bg-dark pb-5">
+          
+          
+          <h1 class="pt-5">Vaiky Seguros</h1>
+          <h5 class="pt-1 pb-4"> É bom ter. Afinal, Vaiky...</h5>
+          
         </div>
+          
+              
+      </div>
+  </div>
+    
+    <div class="container">
+        
+
+        
 
         <form class="row pt-5 pb-5 g-3"> <!---->
             <div class="col-12 col-lg-1">
@@ -97,23 +120,23 @@
               <input type="text" class="form-control" id="input_cep" placeholder="00000-00">
             </div>
             <div class="col-12 col-lg-4">
-              <button type="button" class="btn btn-primary mb-3" id="buscar_cep">Buscar CEP</button>
+              <button type="button" class="btn btn-outline-dark mb-3" id="buscar_cep">Buscar CEP</button>
             </div>
 
             <div class="col-12 col-lg-8">
                 <div class="row pt-5">
                     <label for="output_cep" class="col-form-label" >Endereço encontrado: </label>
-                    <textarea class="form-control" id="output_cep" rows="4"></textarea>
+                    <textarea class="form-control" id="output_cep" rows="4" readonly></textarea>
                 </div>
             </div>
         </form>
 
        <hr class="my-5">
 
-        <form class="row pt-4 g-3"> <!---->
+        <form class="row pt-4 pb-5 g-3"> 
           <div class="col-12 col-lg-2">
            
-            <label for="input_fipe" class="col-form-label" >Digite código da tabela FIPE</label>
+            <label for="input_fipe" class="col-form-label" >Digite código FIPE</label>
           
           
           </div>
@@ -122,18 +145,27 @@
             <input type="text" class="form-control" id="input_fipe" placeholder="000000-0">
           </div>
           <div class="col-12 col-lg-4">
-            <button type="button" class="btn btn-primary mb-3" id="buscar_fipe">Buscar valor</button>
+            <button type="button" class="btn btn-outline-dark mb-3" id="buscar_fipe">Buscar valor</button>
           </div>
 
           <div class="col-12 col-lg-8">
               <div class="row pt-5">
                   <label for="output_fipe" class="col-form-label" >Informações FIPE: </label>
-                  <textarea class="form-control" id="output_fipe" rows="4"></textarea>
+                  <textarea class="form-control" id="output_fipe" rows="4" readonly></textarea>
               </div>
           </div>
       </form>
     
     </div>
+
+    <footer class="text-center pt-3 py-4 bg-dark text-white">
+      <div class="container">
+          <p>Vaiky Seguros&copy; 2025</p>
+          <small><i>Estudo sobre chamada API desenvolvido por <a href="https://github.com/nvsfel" target="_blank">nvsfel</a></i></small><br>
+          <small style="color: rgb(75, 72, 72);"><i>Empresa fictícia, sem compromisso com a realidade.</a></i></small>
+
+      </div>
+  </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   </body>
 </html>
